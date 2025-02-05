@@ -13,6 +13,8 @@ export default function Home() {
     e.preventDefault();
     setLoading(true);
     setError('');
+    
+    console.log('Bejelentkezési kísérlet:', email); // Debug info
 
     try {
       const res = await fetch('/api/auth', {
@@ -22,12 +24,17 @@ export default function Home() {
       });
 
       const data = await res.json();
+      console.log('Szerver válasz:', data); // Debug info
+      
       if (data.authorized) {
         setIsAuthorized(true);
+        console.log('Sikeres bejelentkezés'); // Debug info
       } else {
         setError('Nincs jogosultság a hozzáféréshez');
+        console.log('Jogosultság megtagadva'); // Debug info
       }
     } catch (err) {
+      console.error('Hiba:', err); // Debug info
       setError('Hiba történt a bejelentkezés során');
     } finally {
       setLoading(false);
