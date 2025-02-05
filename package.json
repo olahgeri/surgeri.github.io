@@ -11,6 +11,8 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
-    "googleapis": "^126.0.1"
+    "googleapis": "^126.0.1",
+    "lucide-react": "latest",
+    "@radix-ui/react-alert-dialog": "latest"
   }
 }
