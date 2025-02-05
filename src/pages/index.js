@@ -37,7 +37,6 @@ export default function Home() {
       <Head>
         <title>OOI - Journal Club</title>
         <meta name="description" content="Országos Onkológiai Intézet - Journal Club" />
-        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
       </Head>
 
       <main className="max-w-4xl mx-auto p-6">
