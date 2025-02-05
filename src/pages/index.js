@@ -14,7 +14,7 @@ export default function Home() {
     setLoading(true);
     setError('');
     
-    console.log('Bejelentkezési kísérlet:', email); // Debug info
+    console.log('Bejelentkezési kísérlet:', email);
 
     try {
       const res = await fetch('/api/auth', {
@@ -23,18 +23,19 @@ export default function Home() {
         body: JSON.stringify({ email })
       });
 
+      console.log('Válasz státusz:', res.status);
       const data = await res.json();
-      console.log('Szerver válasz:', data); // Debug info
+      console.log('Szerver válasz:', data);
       
       if (data.authorized) {
         setIsAuthorized(true);
-        console.log('Sikeres bejelentkezés'); // Debug info
+        console.log('Sikeres bejelentkezés');
       } else {
         setError('Nincs jogosultság a hozzáféréshez');
-        console.log('Jogosultság megtagadva'); // Debug info
+        console.log('Jogosultság megtagadva');
       }
     } catch (err) {
-      console.error('Hiba:', err); // Debug info
+      console.error('Hiba:', err);
       setError('Hiba történt a bejelentkezés során');
     } finally {
       setLoading(false);
@@ -43,7 +44,6 @@ export default function Home() {
 
   const handleUrlSubmit = async (e) => {
     e.preventDefault();
-    // URL feltöltés implementálása
     console.log('URL feltöltve:', url);
   };
 
@@ -54,7 +54,6 @@ export default function Home() {
           file.type === 'application/msword' || 
           file.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document') {
         setFile(file);
-        // Fájl feltöltés implementálása
         console.log('Fájl kiválasztva:', file.name);
       } else {
         setError('Csak PDF és Word dokumentumok tölthetők fel');
@@ -96,7 +95,6 @@ export default function Home() {
           </div>
         ) : (
           <div className="grid gap-6">
-            {/* URL feltöltés */}
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-lg font-semibold mb-4">Tudományos cikk hivatkozás feltöltése</h3>
               <form onSubmit={handleUrlSubmit}>
@@ -117,7 +115,6 @@ export default function Home() {
               </form>
             </div>
 
-            {/* Dokumentum feltöltés */}
             <div className="bg-white p-6 rounded-lg shadow-md">
               <h3 className="text-lg font-semibold mb-4">Dokumentum feltöltése</h3>
               <div className="border-2 border-dashed rounded-lg p-8 text-center">
@@ -130,17 +127,4 @@ export default function Home() {
                   id="file-upload"
                 />
                 <label htmlFor="file-upload" className="cursor-pointer">
-                  <p className="mb-2">Kattintson vagy húzza ide a fájlt</p>
-                  <p className="text-sm text-gray-500">PDF vagy Word dokumentum</p>
-                </label>
-                {file && (
-                  <p className="mt-4 text-green-600">Kiválasztott fájl: {file.name}</p>
-                )}
-              </div>
-            </div>
-          </div>
-        )}
-      </main>
-    </div>
-  );
-}
+                  <p class
