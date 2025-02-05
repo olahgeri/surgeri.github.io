@@ -35,8 +35,9 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Head>
-        <title>Journal Club - OOI</title>
+        <title>OOI - Journal Club</title>
         <meta name="description" content="Országos Onkológiai Intézet - Journal Club" />
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
       </Head>
 
       <main className="max-w-4xl mx-auto p-6">
@@ -71,8 +72,10 @@ export default function Home() {
           </div>
         ) : (
           <div className="grid gap-6">
-            {/* Itt lesz a feltöltési felület */}
-            <p className="text-center text-gray-600">Feltöltési felület hamarosan...</p>
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <h3 className="text-lg font-semibold mb-4">Dokumentum feltöltés</h3>
+              <p>Feltöltési felület hamarosan...</p>
+            </div>
           </div>
         )}
       </main>
