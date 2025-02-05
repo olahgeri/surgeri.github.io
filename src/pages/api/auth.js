@@ -8,7 +8,6 @@ export default async function handler(req, res) {
   try {
     const { email } = req.body;
 
-    // Google Sheets API beállítása
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
@@ -19,7 +18,7 @@ export default async function handler(req, res) {
 
     const sheets = google.sheets({ version: 'v4', auth });
 
-    // Email címek lekérése a táblázatból
+    // Email címek ellenőrzése a táblázatban
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
       range: 'C:C', // A C oszlop, ahol az email címek vannak
