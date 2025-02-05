@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Head from 'next/head';
 
 export default function Home() {
   const [email, setEmail] = useState('');
@@ -34,11 +33,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Head>
-        <title>OOI - Journal Club</title>
-        <meta name="description" content="Országos Onkológiai Intézet - Journal Club" />
-      </Head>
-
       <main className="max-w-4xl mx-auto p-6">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold">Országos Onkológiai Intézet</h1>
